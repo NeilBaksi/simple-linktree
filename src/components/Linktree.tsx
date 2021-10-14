@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Facebook, Instagram, Twitter, WhatsApp, GitHub, YouTube, LinkedIn, Code, Storefront, MenuBook, Brush, Today } from '@material-ui/icons';
-import { SvgIconProps, TextField } from '@material-ui/core';
+import React from "react";
+import { Facebook, Instagram,YouTube, Code, Storefront, Brush, 
+    // Twitter, WhatsApp, GitHub, LinkedIn, Today 
+} from '@material-ui/icons';
+import { SvgIconProps } from '@material-ui/core';
 import { Buttons } from './Button'
 import Colors from './Colors'
 //@ts-ignore
@@ -22,23 +24,23 @@ interface LinkTreeProps {
 }
 
 export const LinkTree: React.FC<LinkTreeProps> = (props) => {
-    const { links, linkTexts, handleChangeTextfield } = props;
+    const { links, linkTexts } = props;
 
-    let [t,setT] = useState(links)
+    // let [t,setT] = useState(links)
 
-    useEffect(() => {
-        setT(linkTexts)
-    }, [linkTexts])
+    // useEffect(() => {
+    //     setT(linkTexts)
+    // }, [linkTexts])
 
     let facebook: React.ReactElement<SvgIconProps> = <Facebook />; 
     let instagram: React.ReactElement<SvgIconProps> = <Instagram />; 
-    let twitter: React.ReactElement<SvgIconProps> = <Twitter />; 
-    let whatsapp: React.ReactElement<SvgIconProps> = <WhatsApp />; 
-    let github: React.ReactElement<SvgIconProps> = <GitHub />; 
+    // let twitter: React.ReactElement<SvgIconProps> = <Twitter />; 
+    // let whatsapp: React.ReactElement<SvgIconProps> = <WhatsApp />; 
+    // let github: React.ReactElement<SvgIconProps> = <GitHub />; 
     let youtube: React.ReactElement<SvgIconProps> = <YouTube />; 
-    let linkedin: React.ReactElement<SvgIconProps> = <LinkedIn />;
+    // let linkedin: React.ReactElement<SvgIconProps> = <LinkedIn />;
     let code: React.ReactElement<SvgIconProps> = <Code />;
-    let website: React.ReactElement<SvgIconProps> = <Today />;
+    // let website: React.ReactElement<SvgIconProps> = <Today />;
     let store: React.ReactElement<SvgIconProps> = <Storefront />;
     // let classes: React.ReactElement<SvgIconProps> = <MenuBook />;
     let classes: React.ReactElement<SvgIconProps> = <Brush />;

@@ -8,7 +8,10 @@ import { Title } from './components/Title'
 import { Subtitle } from './components/Subtitle'
 import { ImageAvatar } from './components/Avatar'
 import ProfilePhoto from './photos/avatar.jpeg'
-import { app, db, getCollection, setDocument } from './base';
+import ProfilePhoto2 from './photos/avatar2.jpeg'
+import ProfilePhoto3 from './photos/avatar3.jpeg'
+import ProfilePhoto4 from './photos/avatar4.jpeg'
+import { db, getCollection, setDocument } from './base';
 //@ts-ignore
 import * as Animations from 'react-reveal';
 
@@ -22,6 +25,9 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     maxWidth: 500,
+    background: 'rgba(255,255,255,0.85)',
+    padding: 15,
+    borderRadius: 10
   },
 });
 
@@ -40,6 +46,15 @@ function App() {
   const [links, setLinks] = useState<ObjectType>({facebook: "", instagram: "", youtube:"", store:"", classes:"", website: ""});
   const [linkTexts, setLinkTexts] = useState<ObjectType>({facebook: "", instagram: "", youtube:"", store:"", classes:"", website: ""});
   const [loading, setLoading] = useState(true)
+  const dps = [ProfilePhoto, ProfilePhoto2, ProfilePhoto3, ProfilePhoto4]
+
+  const [count, setCount] = useState(0)
+   
+   useEffect(() => {
+    const timer = setTimeout(() => setCount((count+1)%4), 5*1e3)
+    return () => clearTimeout(timer)
+   })
+   
 
   useEffect(() => {
     getCollection(db, 'links').then((list)=>{
@@ -60,12 +75,12 @@ function App() {
   return (
     <ThemeProvider theme={responsiveFontSizes(theme)}>
       <CssBaseline />
-      <div className="App">
+      <div className="App" style={{background: `url('${process.env.PUBLIC_URL}/background.jpeg')`, backgroundSize: 'cover'}}>
         {loading? <CircularProgress color='secondary' /> :
           <div id="App-content" className={classes.root}>
             <Animations.Fade top>
             <>
-              <ImageAvatar alt="SR" src={ProfilePhoto}/>
+              <ImageAvatar alt="SR" src={dps[count]}/>
               <Title title="@makeupbyshimona"/>
               <Subtitle subtitle="Discover all my offerings here!"/>
             </>

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, setDoc, doc, updateDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, updateDoc } from 'firebase/firestore/lite';
 
 const config = {
     apiKey: "AIzaSyAx9FSQwJ5SKN7o6NY_tOIb4vEA4EBXF0I",

@@ -11,7 +11,10 @@ const useStyles = makeStyles((theme: Theme) =>
         zoom: 0.7,
       },
       [theme.breakpoints.up('sm')]: {
-        zoom: 0.8,
+        zoom: 0.7,
+      },
+      [theme.breakpoints.up('md')]: {
+        zoom: 0.7,
       },
     },
   }),
